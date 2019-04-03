@@ -6,6 +6,7 @@ const taskRouter = require('./routers/task')
 const app = express()
 const port = process.env.PORT || 3000
 
+
 // Without middleware: new req -> run route handler
 // With middleware: new req -> do something -> run route handler
 
@@ -28,25 +29,27 @@ app.listen(port, () => {
 const Task = require('./models/task')
 const User = require('./models/user')
 
-const main = async () => {
-	// const task = await Task.findById('5ca27da416423de77bf4a231')
-	// await task.populate('owner').execPopulate() 
-	// console.log(task.owner)
+// const main = async () => {
+// 	const task = await Task.findById('5ca27da416423de77bf4a231')
+// 	await task.populate('owner').execPopulate() 
+// 	console.log(task.owner)
 
-	const user = await User.findById('5ca27da416423de77bf4a231')
-	console.log(user.tasks)
-}
+// 	const user = await User.findById('5ca27da016423de77bf4a22f')
+// 	await user.populate('tasks').execPopulate()
+// 	console.log(user.tasks)
+// }
 
-main()
+// main()
 
 const jwt = require('jsonwebtoken')
 
-const myFunction = async () => {
-	const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days'})
-	//console.log(token) 
+// const myFunction = async () => {
+// 	const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days'})
+// 	//console.log(token) 
 
-	const data = jwt.verify(token, 'thisismynewcourse')
-	//console.log(data)
-}
+// 	const data = jwt.verify(token, 'thisismynewcourse')
+// 	//console.log(data)
+// }
 
-myFunction()
+// myFunction()
+
