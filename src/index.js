@@ -1,11 +1,10 @@
-const express = require('express')
-require('./db/mongoose')
-const userRouter = require('./routers/user')
-const taskRouter = require('./routers/task')
+const app = require('./app')
 
-const app = express()
 const port = process.env.PORT || 3000
 
+app.listen(port, () => {
+	console.log('Server is up on port ' + port)
+})
 
 // Without middleware: new req -> run route handler
 // With middleware: new req -> do something -> run route handler
@@ -18,16 +17,7 @@ const port = process.env.PORT || 3000
 // 	}
 // })
 
-app.use(express.json()) // automatically parse incoming json into object
-app.use(userRouter)
-app.use(taskRouter)
 
-app.listen(port, () => {
-	console.log('Server is up on port ' + port)
-})
-
-const Task = require('./models/task')
-const User = require('./models/user')
 
 // const main = async () => {
 // 	const task = await Task.findById('5ca27da416423de77bf4a231')
@@ -41,7 +31,7 @@ const User = require('./models/user')
 
 // main()
 
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 
 // const myFunction = async () => {
 // 	const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days'})
